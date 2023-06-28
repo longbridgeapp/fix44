@@ -13,9 +13,13 @@ require (
 require (
 	github.com/armon/go-proxyproto v0.0.0-20210323213023-7e956b284f0a // indirect
 	github.com/golang/snappy v0.0.4 // indirect
+	github.com/gopherjs/gopherjs v1.17.2 // indirect
+	github.com/jtolds/gls v4.20.0+incompatible // indirect
 	github.com/klauspost/compress v1.15.12 // indirect
 	github.com/montanaflynn/stats v0.6.6 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
+	github.com/smartystreets/assertions v1.13.1 // indirect
+	github.com/smartystreets/goconvey v1.8.0 // indirect
 	github.com/xdg-go/pbkdf2 v1.0.0 // indirect
 	github.com/xdg-go/scram v1.1.1 // indirect
 	github.com/xdg-go/stringprep v1.0.3 // indirect
