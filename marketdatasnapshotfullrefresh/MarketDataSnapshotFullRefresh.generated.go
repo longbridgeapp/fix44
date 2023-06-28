@@ -1,7 +1,6 @@
 package marketdatasnapshotfullrefresh
 
 import (
-	"github.com/shopspring/decimal"
 	"time"
 
 	"github.com/quickfixgo/enum"
@@ -9,6 +8,7 @@ import (
 	"github.com/quickfixgo/fix44"
 	"github.com/quickfixgo/quickfix"
 	"github.com/quickfixgo/tag"
+	"github.com/shopspring/decimal"
 )
 
 //MarketDataSnapshotFullRefresh is the fix44 MarketDataSnapshotFullRefresh type, MsgType = W
@@ -1186,6 +1186,11 @@ func (m NoMDEntries) SetEncodedText(v string) {
 	m.Set(field.NewEncodedText(v))
 }
 
+//SetSide sets Side, Tag 54
+func (m NoMDEntries) SetSide(v enum.Side) {
+	m.Set(field.NewSide(v))
+}
+
 //GetMDEntryType gets MDEntryType, Tag 269
 func (m NoMDEntries) GetMDEntryType() (v enum.MDEntryType, err quickfix.MessageRejectError) {
 	var f field.MDEntryTypeField
@@ -1483,6 +1488,15 @@ func (m NoMDEntries) GetEncodedText() (v string, err quickfix.MessageRejectError
 	return
 }
 
+//GetSide gets Side, Tag 54
+func (m NoMDEntries) GetSide() (v enum.Side, err quickfix.MessageRejectError) {
+	var f field.SideField
+	if err = m.Get(&f); err == nil {
+		v = f.Value()
+	}
+	return
+}
+
 //HasMDEntryType returns true if MDEntryType is present, Tag 269
 func (m NoMDEntries) HasMDEntryType() bool {
 	return m.Has(tag.MDEntryType)
@@ -1648,6 +1662,11 @@ func (m NoMDEntries) HasEncodedText() bool {
 	return m.Has(tag.EncodedText)
 }
 
+//HasSide returns true if Side is present, Tag 54
+func (m NoMDEntries) HasSide() bool {
+	return m.Has(tag.Side)
+}
+
 //NoMDEntriesRepeatingGroup is a repeating group, Tag 268
 type NoMDEntriesRepeatingGroup struct {
 	*quickfix.RepeatingGroup
@@ -1657,7 +1676,7 @@ type NoMDEntriesRepeatingGroup struct {
 func NewNoMDEntriesRepeatingGroup() NoMDEntriesRepeatingGroup {
 	return NoMDEntriesRepeatingGroup{
 		quickfix.NewRepeatingGroup(tag.NoMDEntries,
-			quickfix.GroupTemplate{quickfix.GroupElement(tag.MDEntryType), quickfix.GroupElement(tag.MDEntryPx), quickfix.GroupElement(tag.Currency), quickfix.GroupElement(tag.MDEntrySize), quickfix.GroupElement(tag.MDEntryDate), quickfix.GroupElement(tag.MDEntryTime), quickfix.GroupElement(tag.TickDirection), quickfix.GroupElement(tag.MDMkt), quickfix.GroupElement(tag.TradingSessionID), quickfix.GroupElement(tag.TradingSessionSubID), quickfix.GroupElement(tag.QuoteCondition), quickfix.GroupElement(tag.TradeCondition), quickfix.GroupElement(tag.MDEntryOriginator), quickfix.GroupElement(tag.LocationID), quickfix.GroupElement(tag.DeskID), quickfix.GroupElement(tag.OpenCloseSettlFlag), quickfix.GroupElement(tag.TimeInForce), quickfix.GroupElement(tag.ExpireDate), quickfix.GroupElement(tag.ExpireTime), quickfix.GroupElement(tag.MinQty), quickfix.GroupElement(tag.ExecInst), quickfix.GroupElement(tag.SellerDays), quickfix.GroupElement(tag.OrderID), quickfix.GroupElement(tag.QuoteEntryID), quickfix.GroupElement(tag.MDEntryBuyer), quickfix.GroupElement(tag.MDEntrySeller), quickfix.GroupElement(tag.NumberOfOrders), quickfix.GroupElement(tag.MDEntryPositionNo), quickfix.GroupElement(tag.Scope), quickfix.GroupElement(tag.PriceDelta), quickfix.GroupElement(tag.Text), quickfix.GroupElement(tag.EncodedTextLen), quickfix.GroupElement(tag.EncodedText)})}
+			quickfix.GroupTemplate{quickfix.GroupElement(tag.MDEntryType), quickfix.GroupElement(tag.MDEntryPx), quickfix.GroupElement(tag.Currency), quickfix.GroupElement(tag.MDEntrySize), quickfix.GroupElement(tag.MDEntryDate), quickfix.GroupElement(tag.MDEntryTime), quickfix.GroupElement(tag.TickDirection), quickfix.GroupElement(tag.MDMkt), quickfix.GroupElement(tag.TradingSessionID), quickfix.GroupElement(tag.TradingSessionSubID), quickfix.GroupElement(tag.QuoteCondition), quickfix.GroupElement(tag.TradeCondition), quickfix.GroupElement(tag.MDEntryOriginator), quickfix.GroupElement(tag.LocationID), quickfix.GroupElement(tag.DeskID), quickfix.GroupElement(tag.OpenCloseSettlFlag), quickfix.GroupElement(tag.TimeInForce), quickfix.GroupElement(tag.ExpireDate), quickfix.GroupElement(tag.ExpireTime), quickfix.GroupElement(tag.MinQty), quickfix.GroupElement(tag.ExecInst), quickfix.GroupElement(tag.SellerDays), quickfix.GroupElement(tag.OrderID), quickfix.GroupElement(tag.QuoteEntryID), quickfix.GroupElement(tag.MDEntryBuyer), quickfix.GroupElement(tag.MDEntrySeller), quickfix.GroupElement(tag.NumberOfOrders), quickfix.GroupElement(tag.MDEntryPositionNo), quickfix.GroupElement(tag.Scope), quickfix.GroupElement(tag.PriceDelta), quickfix.GroupElement(tag.Text), quickfix.GroupElement(tag.EncodedTextLen), quickfix.GroupElement(tag.EncodedText), quickfix.GroupElement(tag.Side)})}
 }
 
 //Add create and append a new NoMDEntries to this group
