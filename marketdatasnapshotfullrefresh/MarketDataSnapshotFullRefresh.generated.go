@@ -3,13 +3,12 @@ package marketdatasnapshotfullrefresh
 import (
 	"time"
 
-	"github.com/shopspring/decimal"
-
 	"github.com/quickfixgo/enum"
 	"github.com/quickfixgo/field"
 	"github.com/quickfixgo/fix44"
 	"github.com/quickfixgo/quickfix"
 	"github.com/quickfixgo/tag"
+	"github.com/shopspring/decimal"
 )
 
 //MarketDataSnapshotFullRefresh is the fix44 MarketDataSnapshotFullRefresh type, MsgType = W
